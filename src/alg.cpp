@@ -24,7 +24,7 @@ uint64_t fact(uint16_t n) {
 }
 
 double calcItem(double x, uint16_t n) {
-  x = (pown(x, n)) / (fact(n));
+  x = pown(x, n) / fact(n);
   return x;
 }
 
@@ -32,7 +32,7 @@ double expn(double x, uint16_t count) {
   double n = 0;
   double e = 0;
   for (int i = 0; i <= count; i++) {
-    n = (calcItem(x, (count - i)));
+    n = calcItem(x, (count - i));
     e = n + e;
   }
   return e;
@@ -56,7 +56,7 @@ double cosn(double x, uint16_t count) {
   double cosend = 0;
   int count2 = count;
   for (int i = 1; i <= count; i++) {
-    int k = (int)pown(-1, count2 - 1);
+    double k = pown(-1, count2 - 1);
     cos = k * calcItem(x, ((2 * count2) - 2));
     cosend = cosend + cos;
     count2 -= 1;
